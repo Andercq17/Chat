@@ -13,7 +13,7 @@ public class Servidor {
             Socket clientSocket = serverSocket.accept();
             System.out.println("Client connected");
 
-            Thread thread = new Thread(new ClientHandler(clientSocket));
+            Thread thread = new Thread(new ClientThread(clientSocket));
             thread.start();
         }
         
