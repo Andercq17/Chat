@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class Cliente {
+public class Client {
     public static void main(String[] args) throws IOException {
         String host = "localhost";
         int puerto = 1234;
