@@ -12,9 +12,22 @@ public class ClientThread implements Runnable {
         this.in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         this.out = new PrintWriter(clientSocket.getOutputStream(), true);
     }
-    
-    
     public void run(){
-        
+        try {
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                System.out.println("Received message: " + inputLine);
+                out.println("You said: " + inputLine);
+            }
+        } catch (IOException e) {
+            System.out.println("Error handling client");
+        } finally {
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                System.out.println("Could not close client socket");
+            }
+            System.out.println("Client disconnected");
+        }
     }
 }
