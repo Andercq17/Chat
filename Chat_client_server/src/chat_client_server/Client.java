@@ -11,8 +11,7 @@ public class Client {
     public static void main(String[] args) throws IOException{
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter server IP: ");
-        String serverIp = scanner.nextLine();
+        String serverIp = "localhost";
 
         Socket socket = new Socket(serverIp, 1234);
         System.out.println("Connected to server");
